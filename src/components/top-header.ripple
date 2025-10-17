@@ -1,5 +1,5 @@
 import {track, effect } from "ripple"
-import {Link } from "ripple-file-router"
+import {Link , appStore} from "ripple-file-router"
 
 
 
@@ -10,7 +10,11 @@ const items = [
     "properties"
 ]
 const placeh = track("products")
+const theme = track(appStore.get().theme)
 
+ appStore.subscribe(state => {
+    @theme = state.theme
+ })
 effect(()=> {
     
 })
@@ -41,6 +45,13 @@ effect(()=> {
             <i class={it.icon} />
             </Link>
         }
+
+        if (@theme === "light"){
+            <i onClick={()=>  appStore.update({theme: "dark"}) } class="ri-moon-foggy-fill cursor-pointer"></i>
+        } else {
+            <i class="ri-sun-foggy-fill cursor-pointer " onClick={()=>  appStore.update({theme: "light"}) }></i>
+        }
+
     </div>
 </div>
 </div>

@@ -59,7 +59,7 @@ navStore.subscribe((s)=> {
 
  
 
-    <div {ref divref} class={` dark:text-gray-100 dark:bg-black sticky top-[12vh] overflow-hidden transition-all leftside left-0 py-4 min-w-fi overflow-x-hidde px-4  ${@isOpen ? "w-[14%]" : "w-[4%] " } h-[88vh] border-r-2 border-r-gray-300 `}>
+    <div {ref divref} class={` dark:text-gray-100 dark:bg-black sticky top-[12vh] overflow-hidden transition-all leftside left-0 py-4 min-w-fi overflow-x-hidde px-4  ${@isOpen ? "w-[14%]" : "w-[4%] " } h-[88vh] border-r- `}>
         <div class="flex flex-col justify-between h-full">
             <div class="flex flex-col items-center justify-start w-full gap-6">
                 for (const it of navItems){
@@ -88,6 +88,10 @@ navStore.subscribe((s)=> {
             </Link>
         </div>
         </div>
-        
+        <div onClick={()=> {
+            navStore.update(prev => ({navOpen: !prev.navOpen}))
+        }} class="trigger w-[15px] h-full  border-r-2  border-r-gray-300 cursor-e-resize absolute right-0 top-0 ">
+
+        </div>
     </div>
 }
