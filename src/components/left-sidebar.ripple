@@ -1,0 +1,93 @@
+
+import {Link, createStore, useRouter } from "ripple-file-router"
+import {track, on, effect } from "ripple"
+
+
+
+const navStore = createStore({navOpen: true}, {persist: true, storageKey: "navStore"})
+
+
+export default component LeftSidebar(){
+const router = useRouter()
+const path = track(router.path)
+
+const isOpen = track(navStore.get().navOpen)
+
+on(window, "keydown", (e: KeyboardEvent)=>{
+    if (e.ctrlKey && e.key === "b" ){
+        e.preventDefault()
+        navStore.update(prev => ({navOpen: !prev.navOpen}))
+    }
+})
+ 
+const divref = (el: HTMLElement)=> {
+const removeEnter = on(el, "mouseenter", (e: MouseEvent)=> {
+    @isOpen = true
+} )
+
+
+const remvoveLeaft = on(el, "mouseleave", (e: MouseEvent)=> {
+        @isOpen = navStore.get().navOpen
+ 
+})
+
+return ()=> {
+    removeEnter;
+    remvoveLeaft;
+}
+
+}
+
+
+
+
+
+ 
+navStore.subscribe((s)=> {
+    @isOpen = s.navOpen;
+})
+ const navItems = [
+        {name: "Home", url: "/", icon: "ri-home-smile-2-line"},
+        {name: "Products", url: "/products", icon: "ri-box-1-line"},
+        {name: "Services", url: "/services", icon: "ri-user-6-line"},
+        {name: "Real Estate", url: "/real-estate", icon: "ri-building-2-line"},
+        {name: "Payments", url: "/payments", icon: "ri-bank-card-line -rotate-16 border-b "},
+
+
+    ];
+
+
+ 
+
+    <div {ref divref} class={` dark:text-gray-100 dark:bg-black sticky top-[12vh] overflow-hidden transition-all leftside left-0 py-4 min-w-fi overflow-x-hidde px-4  ${@isOpen ? "w-[14%]" : "w-[4%] " } h-[88vh] border-r-2 border-r-gray-300 `}>
+        <div class="flex flex-col justify-between h-full">
+            <div class="flex flex-col items-center justify-start w-full gap-6">
+                for (const it of navItems){
+                    <Link href={it.url} className={` ${@path === it.url ? " bg-gray-200 dark:text-gray-900 rounded-2xl " : ""}  font-semibold   ${@isOpen ? "px-4 py-2 text-nowrap  flex   text-[1.2rem] w-full  items-center gap-4" : "px-1  text-[1.2rem] " } `}>
+                <i class={`${it.icon} `} ></i>
+                if (@isOpen) {
+                    <p class="s">{it.name}
+                </p>
+                }
+                    </Link>
+                }
+            </div>
+
+
+
+        <div class="bottom mb-4 flex items-center justify-center ">
+            <Link href="new" className="flex dark:text-gray-900 items-center font-medium text-nowrap gap-3  bg-gray-300 rounded-md p-2 w-4/5 min-w-fit text-sm ">
+            
+            <i class="ri-add-circle-line"></i>
+           if (@isOpen) {
+             <p class=" text-nowrap">
+                 {"Create Listing"}
+             </p>
+           }
+            
+            </Link>
+        </div>
+        </div>
+        
+    </div>
+}

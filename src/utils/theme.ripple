@@ -1,0 +1,24 @@
+
+
+import { appStore } from "ripple-file-router"
+import { on, effect } from "ripple"
+
+
+export default component Theme(){
+
+on(window, "keydown", (e: KeyboardEvent)=> {
+    if (e.ctrlKey && e.key === "d"  ){
+        e.preventDefault()
+
+        appStore.update(prev => ({theme: prev.theme === "light" ? "dark" : "light"}))
+      
+    }
+})
+    
+effect(()=> {
+      const themeStore = appStore.derive(state => state.theme )
+        themeStore.subscribe(s => {
+            document.documentElement.className = s
+        })
+})
+}

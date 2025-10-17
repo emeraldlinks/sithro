@@ -1,0 +1,12 @@
+import { track } from 'ripple';
+import {PageRoutes} from "ripple-file-router"
+import { modules } from "./routes";
+import "remixicon/fonts/remixicon.css"
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import Theme from "./utils/theme.ripple"
+
+export component App() {
+        <PageRoutes modules={modules}  />
+        <Theme />
+}

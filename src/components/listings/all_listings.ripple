@@ -1,0 +1,25 @@
+import ListingCard from "../listings/listing_card.ripple"
+
+
+export default component AllListings(){
+
+
+    const Listings = [
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+        {title: "", detail: "", price: "", user: "", location: ""},
+    ]
+
+    <div class="grid mt-6 grid-cols-3 max-sm:grid-cols-1 gap-x4 gap-y-6">
+        for (const lis of Listings){
+            <ListingCard />
+        }
+    </div>
+    
+}

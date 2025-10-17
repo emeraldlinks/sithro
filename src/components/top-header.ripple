@@ -1,0 +1,49 @@
+import {track, effect } from "ripple"
+import {Link } from "ripple-file-router"
+
+
+
+export default component TopHeader(){
+const items = [
+    "products",
+    "services",
+    "properties"
+]
+const placeh = track("products")
+
+effect(()=> {
+    
+})
+
+<div class="headers z-20 dark:text-gray-100 dark:bg-black px-[2%] py-4 sticky top-0 h-[12vh] min-h-fit bg-white border-b-gray-300 border-b-2 flex flex-row items-center justify-between  ">
+    <div class="left flex items-center gap-12 w-[60%] ">
+ <Link href="/" className="text-2xl text-[#2c2c2c] dark:text-gray-100 w-[30%] ">
+        <img src="/logo.png" alt="logo" class="  "/>
+            </Link>
+        <div class="search w-[44%] flex items-center gap-2 justify-center px-2 py-1 h-[80%] rounded-full bg-[#edebff] dark:bg-gray-400 ">
+            <i class="ri-search-line text-xl w-[5%]  "/>
+            <input type="text" placeholder="search for proucts, services or properties" class="outline-0 w-[90%] dark:text-gray-100 text-sm " />
+
+        </div>
+    </div>
+
+<div class="rightes">
+    const rightItems = [
+        {name: "notifications", icon: "ri-notification-2-line"},
+        {name: "chats", icon: "ri-chat-1-line"},
+        {name: "chats", icon: "ri-user-6-line"},
+
+    ];
+
+    <div class="flex gap-4 items-center">
+        for (const it of rightItems){
+            <Link href="/" className="text-2xl dark:text-gray-100 text-[#2c2c2c] ">
+            <i class={it.icon} />
+            </Link>
+        }
+    </div>
+</div>
+</div>
+
+
+}
