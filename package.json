@@ -32,7 +32,7 @@
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
     "remixicon": "^4.7.0",
-    "ripple": "^0.2.35",
-    "ripple-file-router": "^0.0.16"
+    "ripple": "^0.2.134",
+    "ripple-file-router": "^0.0.18"
   }
 }

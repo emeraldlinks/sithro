@@ -1,3 +1,4 @@
+import type { Component } from 'ripple';
 
 import {Link, createStore, useRouter } from "ripple-file-router"
 import {track, on, effect } from "ripple"
@@ -21,20 +22,16 @@ on(window, "keydown", (e: KeyboardEvent)=>{
 })
  
 const divref = (el: HTMLElement)=> {
-const removeEnter = on(el, "mouseenter", (e: MouseEvent)=> {
+on(el, "mouseenter", (e: MouseEvent)=> {
     @isOpen = true
 } )
 
 
-const remvoveLeaft = on(el, "mouseleave", (e: MouseEvent)=> {
+ on(el, "mouseleave", (e: MouseEvent)=> {
         @isOpen = navStore.get().navOpen
  
 })
 
-return ()=> {
-    removeEnter;
-    remvoveLeaft;
-}
 
 }
 
